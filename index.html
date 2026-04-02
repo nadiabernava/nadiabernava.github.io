@@ -225,8 +225,8 @@
 .booking-title em { font-style: italic; color: var(–aqua); }
 .booking-sub { font-size: 0.93rem; color: var(–muted); margin-bottom: 3.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.85; position: relative; }
 .booking-actions { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; position: relative; }
-.booking-btn { display: inline-block; padding: 1.15rem 3.5rem; background: var(–aqua); color: white; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background 0.35s, transform 0.3s; }
-.booking-btn:hover { background: var(–lilac); transform: translateY(-3px); }
+.booking-btn { display: inline-block; padding: 1.15rem 3.5rem; background: var(–lilac); color: white; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background 0.35s, transform 0.3s; border: none; cursor: pointer; }
+.booking-btn:hover { background: #6a528f; transform: translateY(-3px); }
 .booking-contact { font-size: 0.8rem; color: var(–soft); }
 .booking-contact a { color: var(–aqua); text-decoration: none; }
 
@@ -507,7 +507,7 @@ footer { padding: 2.2rem 6rem; background: var(--lilac-section); display: flex; 
   <h2 class="booking-title">Vuoi sentire<br>cosa c'è <em>davvero</em><br>sotto?</h2>
   <p class="booking-sub">Scrivimi per prenotare una sessione o per capire se questo lavoro è quello che stai cercando. Non serve avere tutto chiaro — basta la curiosità di guardare più in profondità.</p>
   <div class="booking-actions">
-    <button class="booking-btn" onclick="document.getElementById('modalOverlay').classList.add('open')">Prenota una sessione</button>
+    <button class="booking-btn" onclick="document.getElementById('modalOverlay').classList.add('open')">Chiedi info</button>
     <p class="booking-contact">oppure scrivimi a <a href="mailto:info@nadiabernava.com">info@nadiabernava.com</a></p>
   </div>
 </section>
