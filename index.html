@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Your Website Title</title>
 </head>
 <body>
-    <h1>Current Date and Time (UTC)</h1>
-    <p>2026-04-02 14:24:29</p>
+    <h1>Welcome to My Website</h1>
+    <button id="prenota-button">Prenota una Sessione</button>
+
+    <div id="contact-form" style="display:none;">
+        <h2>Contact Us</h2>
+        <form id="form">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" required></textarea><br><br>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('prenota-button').onclick = function() {
+            var form = document.getElementById('contact-form');
+            if (form.style.display === 'none') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        };
+    </script>
 </body>
 </html>
