@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="color-scheme" content="light only" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Somatic Hypnosis · Nadia Bernava</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light only;
+      --ink: #1a1a2e;
+      --aqua: #5ba8a5;
+      --aqua-dark: #3d8a87;
+      --aqua-mid: #7ec4c1;
+      --aqua-light: #b2dedd;
+      --aqua-pale: #eef8f7;
+      --lilac: #8e72b5;
+      --lilac-light: #c9b8e0;
+      --lilac-pale: #f5f1fb;
+      --lilac-section: #ede8f7;
+      --muted: #636378;
+      --soft: #9898b0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #ffffff; color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 1.4rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(91,168,165,0.12); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-link { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    .nav-link:hover { color: var(--aqua); }
+    .nav-cta { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--aqua); text-decoration: none; border-bottom: 1px solid var(--aqua); padding-bottom: 2px; transition: color 0.3s, border-color 0.3s; }
+    .nav-cta:hover { color: var(--lilac); border-color: var(--lilac); }
+    .nav-lang { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--soft); text-decoration: none; border-bottom: 1px solid var(--soft); padding-bottom: 2px; transition: color 0.3s, border-color 0.3s; }
+    .nav-lang:hover { color: var(--lilac); border-color: var(--lilac); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1.15fr 0.85fr; overflow: hidden; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 9rem 4rem 6rem 6rem; background: #ffffff; position: relative; z-index: 2; }
+    .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--aqua); margin-bottom: 2rem; }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 5.5vw, 6.2rem); font-weight: 300; line-height: 1.04; color: var(--ink); margin-bottom: 2rem; }
+    .hero-title em { font-style: italic; color: var(--lilac); }
+    .hero-sub { font-size: 1rem; line-height: 1.9; color: var(--muted); max-width: 420px; margin-bottom: 1rem; }
+    .hero-promise { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; color: var(--aqua); margin-bottom: 2.8rem; max-width: 380px; line-height: 1.6; }
+    .hero-btn { display: inline-block; padding: 1rem 2.8rem; background: var(--ink); color: #fff; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: background 0.35s, transform 0.3s; width: fit-content; }
+    .hero-btn:hover { background: var(--aqua); transform: translateY(-2px); }
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: linear-gradient(150deg, var(--aqua-pale) 0%, #e8e2f5 55%, var(--lilac-pale) 100%); }
+    .orb-1 { position: absolute; width: 72%; aspect-ratio: 1; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle at 38% 38%, rgba(91,168,165,0.28) 0%, rgba(142,114,181,0.18) 55%, transparent 75%); border: 1px solid rgba(91,168,165,0.2); animation: breathe 7s ease-in-out infinite; }
+    .orb-2 { position: absolute; width: 44%; aspect-ratio: 1; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, rgba(142,114,181,0.15), transparent 70%); border: 1px solid rgba(142,114,181,0.15); animation: breathe 7s ease-in-out 1.5s infinite; }
+    .orb-3 { position: absolute; width: 22%; aspect-ratio: 1; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(91,168,165,0.12); animation: breathe 7s ease-in-out 3s infinite; }
+    .hero-word { position: absolute; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; letter-spacing: 0.1em; font-weight: 400; }
+    .hw-1 { top: 18%; left: 30%; color: var(--lilac); }
+    .hw-2 { top: 22%; left: 52%; color: var(--aqua); }
+    .hw-3 { top: 36%; left: 28%; color: var(--aqua); }
+    .hw-4 { top: 36%; left: 62%; color: var(--lilac); }
+    .hw-5 { top: 58%; left: 28%; color: var(--lilac); }
+    .hw-6 { top: 58%; left: 60%; color: var(--aqua); }
+    .hw-7 { top: 74%; left: 32%; color: var(--aqua); }
+    .hw-8 { top: 74%; left: 52%; color: var(--lilac); }
+    .hero-divider { position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--aqua-light), transparent); }
+    .scroll-hint { position: absolute; bottom: 2.5rem; left: 6rem; display: flex; align-items: center; gap: 0.75rem; }
+    .scroll-line { width: 36px; height: 1px; background: var(--aqua-light); overflow: hidden; position: relative; }
+    .scroll-line::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--aqua); animation: slideLine 2.2s 1.5s ease-in-out infinite; }
+    .scroll-text { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--soft); }
+
+    /* INTRO */
+    .intro { padding: 7rem 6rem; display: grid; grid-template-columns: 1fr 2.2fr; gap: 5rem; align-items: start; background: #ffffff; }
+    .intro-label { font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--aqua); padding-top: 0.6rem; }
+    .intro-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.4vw, 2.3rem); font-weight: 300; line-height: 1.55; color: var(--ink); }
+    .intro-text em { font-style: italic; color: var(--lilac); }
+    .intro-text strong { font-weight: 400; color: var(--aqua); }
+
+    /* METHOD */
+    .method { padding: 7rem 6rem; background: var(--lilac-section); }
+    .method-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(26,26,46,0.1); }
+    .method-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 300; color: var(--ink); }
+    .method-sub { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--aqua); }
+    .method-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .step { padding-top: 2rem; border-top: 1px solid rgba(26,26,46,0.1); }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(91,168,165,0.35); line-height: 1; margin-bottom: 1.5rem; }
+    .step-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; color: var(--ink); }
+    .step-desc { font-size: 0.88rem; line-height: 1.85; color: var(--muted); }
+    .step-accent { color: var(--aqua); }
+    .step-accent-l { color: var(--lilac); }
+
+    /* RESULTS */
+    .results { padding: 8rem 6rem; background: #ffffff; }
+    .results-header { text-align: center; margin-bottom: 5rem; }
+    .results-eyebrow { font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--lilac); margin-bottom: 1.5rem; }
+    .results-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 300; line-height: 1.15; color: var(--ink); }
+    .results-title em { font-style: italic; color: var(--aqua); }
+    .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .result-card { padding: 2.5rem 2rem; background: #fafafa; border: 1px solid rgba(91,168,165,0.1); border-top: 2px solid transparent; transition: border-top-color 0.35s, transform 0.35s, box-shadow 0.35s; }
+    .result-card:hover { transform: translateY(-4px); }
+    .result-card:nth-child(odd):hover { border-top-color: var(--aqua); box-shadow: 0 12px 40px rgba(91,168,165,0.1); }
+    .result-card:nth-child(even):hover { border-top-color: var(--lilac); box-shadow: 0 12px 40px rgba(142,114,181,0.1); }
+    .result-icon { font-size: 1.6rem; margin-bottom: 1.2rem; }
+    .result-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 400; color: var(--ink); margin-bottom: 0.8rem; }
+    .result-text { font-size: 0.85rem; line-height: 1.8; color: var(--muted); }
+
+    /* PRICING */
+    .session { padding: 7rem 6rem; background: var(--lilac-pale); }
+    .session-header { text-align: center; margin-bottom: 5rem; }
+    .session-eyebrow { font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--aqua); margin-bottom: 1.5rem; }
+    .session-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 3.8vw, 3.5rem); font-weight: 300; color: var(--ink); margin-bottom: 1rem; }
+    .session-subtitle { font-size: 0.9rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.8; }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; max-width: 860px; margin: 0 auto 3.5rem; }
+    .pricing-card { padding: 3.5rem 3rem; background: white; position: relative; transition: transform 0.3s; }
+    .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card.featured { background: white; border: 1px solid var(--lilac-light); }
+    .pricing-badge { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--aqua); color: white; padding: 0.3rem 0.8rem; }
+    .pricing-label { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--aqua); margin-bottom: 1rem; }
+    .pricing-name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 0.5rem; color: var(--ink); }
+    .pricing-price { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--aqua); line-height: 1; margin-bottom: 0.5rem; }
+    .pricing-card.featured .pricing-price { color: var(--lilac); }
+    .pricing-price-note { font-size: 0.78rem; color: var(--soft); margin-bottom: 2rem; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .pricing-features li { font-size: 0.88rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.8rem; line-height: 1.6; }
+    .pricing-features li::before { content: '–'; color: var(--aqua-mid); flex-shrink: 0; }
+    .session-note { text-align: center; font-size: 0.85rem; color: var(--soft); max-width: 520px; margin: 0 auto; line-height: 1.8; font-style: italic; }
+
+    /* ABOUT */
+    .about { padding: 8rem 6rem; background: var(--lilac-section); display: grid; grid-template-columns: 2fr 1fr; gap: 7rem; align-items: start; }
+    .about-eyebrow { font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--lilac); margin-bottom: 2rem; }
+    .about-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 3.8vw, 3.5rem); font-weight: 300; line-height: 1.15; margin-bottom: 2.5rem; color: var(--ink); }
+    .about-body { font-size: 0.93rem; line-height: 1.95; color: var(--muted); margin-bottom: 1.4rem; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+    .tag { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 1rem; border: 1px solid rgba(91,168,165,0.3); color: var(--muted); transition: border-color 0.3s, color 0.3s; }
+    .tag:hover { border-color: var(--aqua); color: var(--aqua); }
+    .about-sidebar { padding-top: 3rem; }
+    .about-pull { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; font-weight: 300; line-height: 1.65; color: var(--ink); padding-left: 1.5rem; border-left: 2px solid var(--lilac-light); }
+
+    /* BOOKING */
+    .booking { padding: 9rem 6rem; background: var(--lilac-pale); text-align: center; position: relative; overflow: hidden; }
+    .booking::before { content: ''; position: absolute; width: 700px; height: 700px; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, rgba(91,168,165,0.07), rgba(142,114,181,0.05) 50%, transparent 70%); }
+    .booking-eyebrow { font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--aqua); margin-bottom: 2rem; }
+    .booking-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5.2rem); font-weight: 300; color: var(--ink); line-height: 1.08; margin-bottom: 1.8rem; position: relative; }
+    .booking-title em { font-style: italic; color: var(--aqua); }
+    .booking-sub { font-size: 0.93rem; color: var(--muted); margin-bottom: 3.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.85; position: relative; }
+    .booking-actions { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; position: relative; }
+    .booking-btn { display: inline-block; padding: 1.15rem 3.5rem; background: #3d8a87; color: white; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background 0.35s, transform 0.3s; }
+    .booking-btn:hover { background: #2d6e6b; transform: translateY(-3px); }
+    .booking-contact { font-size: 0.8rem; color: var(--soft); }
+    .booking-contact a { color: var(--aqua); text-decoration: none; }
+
+    footer { padding: 2.2rem 6rem; background: var(--lilac-section); display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .footer-note { font-size: 0.68rem; color: var(--soft); }
+
+    @keyframes breathe { 0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 0.85; } 50% { transform: translate(-50%,-50%) scale(1.07); opacity: 1; } }
+    @keyframes slideLine { 0% { left: -100%; } 60% { left: 100%; } 100% { left: 100%; } }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .nav-link { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 6rem 1.5rem 3rem; min-height: 100vh; }
+      .hero-right { height: 320px; }
+      .scroll-hint { left: 1.5rem; bottom: 1.5rem; }
+      .intro { grid-template-columns: 1fr; gap: 1.5rem; padding: 4rem 1.5rem; }
+      .method { padding: 4rem 1.5rem; }
+      .method-steps { grid-template-columns: 1fr; gap: 2rem; }
+      .method-header { flex-direction: column; gap: 0.5rem; }
+      .results { padding: 4rem 1.5rem; }
+      .results-grid { grid-template-columns: 1fr; }
+      .session { padding: 4rem 1.5rem; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .about { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+      .booking { padding: 5rem 1.5rem; }
+      footer { flex-direction: column; gap: 0.8rem; padding: 2rem 1.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Nadia Bernava</a>
+  <div class="nav-links">
+    <a class="nav-link" href="#method">The method</a>
+    <a class="nav-link" href="#sessions">Sessions</a>
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-cta" href="#book">Book</a>
+    <a class="nav-lang" href="/index.html">IT</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Somatic Hypnosis · Nadia Bernava</p>
+    <h1 class="hero-title">Coming home<br>to<br><em>yourself.</em></h1>
+    <p class="hero-sub">Together, we dissolve the limiting beliefs held in the body — those that generate symptoms, recurring patterns and invisible self-sabotage — and allow your most authentic nature to emerge.</p>
+    <p class="hero-promise">More lightness. More serenity. The ability to laugh at what once weighed you down.</p>
+    <a href="#method" class="hero-btn">Discover how it works</a>
+    <div class="scroll-hint"><div class="scroll-line"></div><span class="scroll-text">Scroll</span></div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg"></div>
+    <div class="orb-1"></div><div class="orb-2"></div><div class="orb-3"></div>
+    <span class="hero-word hw-1">love</span>
+    <span class="hero-word hw-2">authenticity</span>
+    <span class="hero-word hw-3">flow</span>
+    <span class="hero-word hw-4">clarity</span>
+    <span class="hero-word hw-5">freedom</span>
+    <span class="hero-word hw-6">serenity</span>
+    <span class="hero-word hw-7">presence</span>
+    <span class="hero-word hw-8">lightness</span>
+    <div class="hero-divider"></div>
+  </div>
+</section>
+
+<section class="intro">
+  <p class="intro-label">The starting point</p>
+  <p class="intro-text">Every recurring block, every unexplained physical symptom, every limit you cannot seem to move past — has a root. It is not in the mind. It is in the body — still carrying the weight of a belief that <em>no longer belongs to you.</em><br><br><strong>Real change does not happen through understanding. It happens through feeling.</strong></p>
+</section>
+
+<section class="method" id="method">
+  <div class="method-header">
+    <h2 class="method-title">The method</h2>
+    <span class="method-sub">Three phases · One session</span>
+  </div>
+  <div class="method-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3 class="step-name">Investigation</h3>
+      <p class="step-desc">Before we work, I listen deeply. I use your Human Design as a map and your story as a thread — to find the <span class="step-accent">precise knot</span> generating the block, not the surface symptom. Lived hypersensitivity, intuition sharpened session by session, active listening.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3 class="step-name">Release</h3>
+      <p class="step-desc">In a state of <span class="step-accent">expanded awareness</span> — you are present and conscious throughout — I guide your attention towards the sensations in the body where the block is held. You do not need to understand everything. You need to feel.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3 class="step-name">Integration</h3>
+      <p class="step-desc">The limiting belief loses its charge. <span class="step-accent-l">The body integrates</span> what the mind had only half understood. What remains is a freer and more authentic version of you, one that does not ask permission to exist.</p>
+    </div>
+  </div>
+</section>
+
+<section class="results">
+  <div class="results-header">
+    <p class="results-eyebrow">What changes</p>
+    <h2 class="results-title">What people<br><em>begin to feel.</em></h2>
+  </div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-icon">☀︎</div>
+      <h3 class="result-title">Serenity and presence</h3>
+      <p class="result-text">A regulated body naturally brings more calm. You stop being in constant survival mode. You begin to be here, now, with more capacity to enjoy what is.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">◎</div>
+      <h3 class="result-title">Clarity and direction</h3>
+      <p class="result-text">You begin to see where you were trying to be someone you are not. That understanding brings a clearer, more natural direction — not imposed, but emerged.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">✧</div>
+      <h3 class="result-title">Genuine humour</h3>
+      <p class="result-text">When the body stops carrying an old weight, the sense of play returns. More genuine laughter, more lightness in daily life, more capacity to not take yourself too seriously.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">✦</div>
+      <h3 class="result-title">Energy reclaimed</h3>
+      <p class="result-text">You stop using force to hold the blocks in place. That energy returns to you — to create, to choose, to enjoy life without always running on empty.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">♡</div>
+      <h3 class="result-title">True love</h3>
+      <p class="result-text">When you stop carrying the weight of others' beliefs, the way you love and allow yourself to be loved changes too. Relationships become truer, freer, more yours.</p>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">◇</div>
+      <h3 class="result-title">Coming home to yourself</h3>
+      <p class="result-text">The deepest work is always this — coming home to yourself. Recognising yourself. Stopping the fight against yourself. Embodying your uniqueness without having to justify it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="session" id="sessions">
+  <div class="session-header">
+    <p class="session-eyebrow">How it works</p>
+    <h2 class="session-title">A single session or a journey.</h2>
+    <p class="session-subtitle">Every person is different. You can choose a single session to work on a specific block, or a deeper journey if you want support over time. You do not need to know in advance — write to me and we will figure it out together.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <p class="pricing-label">Single session</p>
+      <h3 class="pricing-name">One session</h3>
+      <p class="pricing-price">€150</p>
+      <p class="pricing-price-note">60–90 minutes · online or in person</p>
+      <ul class="pricing-features">
+        <li>In-depth investigation with Human Design reading</li>
+        <li>Somatic work on one or more blocks that emerge in the session</li>
+        <li>Integration and orientation at the close of the session</li>
+        <li>Ideal for those who want to explore before committing</li>
+      </ul>
+    </div>
+    <div class="pricing-card featured">
+      <span class="pricing-badge">Recommended</span>
+      <p class="pricing-label">Multiple sessions</p>
+      <h3 class="pricing-name">A journey together</h3>
+      <p class="pricing-price">Su misura</p>
+      <p class="pricing-price-note">3–5 sessions · payment in two instalments</p>
+      <ul class="pricing-features">
+        <li>3–5 sessions, rhythm defined together</li>
+        <li>Progressive work on the areas that emerge session by session</li>
+        <li>Payment in two instalments, at the start and midpoint of the journey</li>
+        <li>For those who sense there is much to release and want to do so with continuity</li>
+      </ul>
+    </div>
+  </div>
+  <p class="session-note">Not sure which to choose? Write to me — we can talk before deciding anything.</p>
+</section>
+
+<section class="about" id="about">
+  <div>
+    <p class="about-eyebrow">About</p>
+    <h2 class="about-title">Nadia Bernava</h2>
+    <p class="about-body">I am a hypnotherapist and I have worked for years with people carrying deep blocks — the kind the mind understands but the body cannot yet let go of.</p>
+    <p class="about-body">What allows me to find the core pattern with precision is a combination of lived hypersensitivity, years of work with hypnosis, and an intuition sharpened session by session. Active listening, total presence. I do not look for the surface symptom — I look for what lies beneath.</p>
+    <p class="about-body">I use Human Design as a compass — not to label, but to reveal where your energy truly wants to go. What remains, after the release, is a freer and more authentic version of you, one that does not ask permission to exist.</p>
+    <p class="about-body">I work online and in person, with single sessions and journeys. Every session is different, just as every person is different.</p>
+    <div class="about-tags">
+      <span class="tag">Somatic Hypnosis</span>
+      <span class="tag">Human Design</span>
+      <span class="tag">Nervous System</span>
+      <span class="tag">Limiting Beliefs</span>
+      <span class="tag">Emotional Regulation</span>
+      <span class="tag">Individual Journeys</span>
+    </div>
+  </div>
+  <div class="about-sidebar">
+    <p class="about-pull">"My work is not to change who you are. It is to dissolve what prevents you from being it fully."</p>
+  </div>
+</section>
+
+<section class="booking" id="book">
+  <p class="booking-eyebrow">Begin</p>
+  <h2 class="booking-title">Do you want to feel<br>what is <em>truly</em><br>beneath?</h2>
+  <p class="booking-sub">Write to me to book a session or to understand whether this work is what you are looking for. You do not need to have everything clear — all it takes is the curiosity to look a little deeper.</p>
+  <div class="booking-actions">
+    <a href="mailto:nadia@esempio.com" class="booking-btn">Get in touch</a>
+    <p class="booking-contact">or write to me at <a href="mailto:nadia@esempio.com">nadia@esempio.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Nadia Bernava · Somatic Hypnosis</span>
+  <span class="footer-note">© 2025 · Sessions online and in person</span>
+</footer>
+
+</body>
+</html>
