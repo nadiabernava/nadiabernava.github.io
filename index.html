@@ -381,9 +381,18 @@ footer { padding: 2.2rem 6rem; background: var(--lilac-section); display: flex; 
   <h2 class="booking-title">Vuoi sentire<br>cosa c'è <em>davvero</em><br>sotto?</h2>
   <p class="booking-sub">Scrivimi per prenotare una sessione o per capire se questo lavoro è quello che stai cercando. Non serve avere tutto chiaro — basta la curiosità di guardare più in profondità.</p>
   <div class="booking-actions">
-    <a href="/cdn-cgi/l/email-protection#89e7e8ede0e8c9ecfaece4f9e0e6a7eae6e4" class="booking-btn">Chiedi info</a>
-    <p class="booking-contact">oppure scrivimi a <a href="/cdn-cgi/l/email-protection#8be5eaefe2eacbeef8eee6fbe2e4a5e8e4e6"><span class="__cf_email__" data-cfemail="cfa1aeaba6ae8faabcaaa2bfa6a0e1aca0a2">[email&#160;protected]</span></a></p>
+    <a id =contact-link href="#" class="booking-btn">Chiedi info</a>
   </div>
 </section>
+
+<script>
+  (() => {
+    const e = ["info", "nadiabernava", "com"];
+    const email = `${e[0]}@${e[1]}.${e[2]}`;
+
+    const link = document.getElementById("contact-link");
+    link.href = `mailto:${email}`;
+  })();
+</script>
 
 <footer>
